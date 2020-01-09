@@ -1,0 +1,43 @@
+<div fxFlexFill fxLayout="column" fxLayoutAlign="center"> 
+  <div fxLayout="row" fxLayoutWrap fxLayoutAlign="center" class="overflowScroll"> 
+      <div fxFlex="500px" fxFlex.xs="90">
+        <mat-card class="mat-elevation-z7" fxLayout="column">
+            <mat-card-header fxLayoutAlign="center" fxFlex="100">
+                <mat-card-title> 
+                  <img alt="Logo Iso" src="/assets/17025.png">
+                </mat-card-title>
+                <mat-card-subtitle fxLayoutAlign="center">Autenticação Necessária</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+              <form fxLayout="column" [formGroup]="form" (keyup.enter)="realizarLogin()">
+                <mat-form-field *ngIf="registrese">
+                    <input matInput formControlName="name" placeholder="Nome" value="">
+                    <mat-error *ngIf="form.controls['name'].hasError('required')">
+                        Campo obrigatório
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                    <input matInput formControlName="email" placeholder="E-mail" value="">
+                    <mat-error *ngIf="form.controls['email'].hasError('required')">
+                        Campo obrigatório
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                    <input matInput formControlName="password" placeholder="Senha" value="" type="password">
+                    <mat-error *ngIf="form.controls['password'].hasError('required')">
+                        Campo obrigatório
+                    </mat-error>
+                </mat-form-field>
+                <br/>
+                <button *ngIf="!registrese" mat-raised-button [disabled]="!form.valid" (click)="realizarLogin()" type="button" color="primary">Login</button><br>
+                <button *ngIf="registrese" mat-raised-button [disabled]="!form.valid" (click)="confirmarRegistro()" type="button" color="primary">Registrar</button><br>
+                <button mat-raised-button (click)="enableRegister()" type="button" color="">
+                  {{registrese ? 'Cancelar' : 'Registre-se'}}
+                </button>
+              </form>
+            </mat-card-content>
+          </mat-card>
+          <mat-progress-bar *ngIf="login" mode="indeterminate"> </mat-progress-bar>
+      </div> 
+  </div>
+</div>
