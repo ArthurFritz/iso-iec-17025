@@ -4,7 +4,6 @@ import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
   { path: 'main', redirectTo: '/main', pathMatch: 'full' },
-  { path: 'register', redirectTo: '/register', pathMatch: 'full' },
   { path: '**', redirectTo: '/login', pathMatch: 'full' }
 ];
 

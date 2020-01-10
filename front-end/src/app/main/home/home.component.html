@@ -1,0 +1,42 @@
+
+<mat-card>
+    <mat-card-header>
+        <div fxFlex="100" fxLayout="column">
+            <h2 fxLayoutAlign="center center">Norma Brasileira - ABNT NBR ISO/IEC 17025</h2>
+            <p fxLayoutAlign="center center">Requisitos gerais para a competência de laboratórios de ensaio e calibração</p>
+            <p fxLayoutAlign="end center">Terceira edição - 2017</p>
+        </div>
+    </mat-card-header>
+    <mat-card-content>
+        <p align="justify">O objetivo dessa ferramenta é apresentar os requisitos gerais para a competência, imparcialidade e operação consistente dos laboratórios, de acordo com a norma ABNT NBR ISO/IEC 17025:2017, bem como apresentar recomendações de implementação desses requisitos.
+            A ferramenta é aplicável a todas as organizações que executam atividades de laboratórios de saneamento ambiental, independentemente do tamanho ou complexidade.
+            Gestores de laboratórios podem utilizar essa ferramenta para auxiliar no diagnóstico e evolução do sistema de gestão da qualidade (SGQ).
+            As recomendações apresentadas foram avaliadas por especialistas do meio acadêmico e gestores de laboratórios de saneamento ambiental, representando assertividade no cumprimento dos seus objetivos.
+        </p>
+        <hr/>
+        <p align="justify">Cada requisito da norma compreende um item para ser verificado no laboratório. A verificação deve ser realizada in loco e em todos os setores do laboratório. Além disso, a avaliação dos requisitos da norma deve ser realizada pela equipe de avaliação trabalhando de forma integrada. Busca-se identificar evidências (isto é, roteiros, documentos, procedimentos, registros, cartazes, rotina operacional, entre outros) que representam a realização/implementação do item. Aos requisitos avaliados devem ser atribuídas notas em uma escala de 0 (zero) a 5 (cinco), de acordo com as evidências encontradas sobre o estado do sistema de gestão da qualidade do laboratório. A escala é:
+        </p>
+
+        <div fxLayoutAlign="center center">
+            <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+                <ng-container matColumnDef="nota">
+                    <th mat-header-cell *matHeaderCellDef style="width: 50px">Nota </th>
+                    <td mat-cell *matCellDef="let element" style="width: 50px"> {{element.nota}} </td>
+                </ng-container>
+                
+                <ng-container matColumnDef="classificacao">
+                    <th mat-header-cell *matHeaderCellDef> Classificação </th>
+                    <td mat-cell *matCellDef="let element"> {{element.classificacao}} </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+        </div>
+        <p align="justify">Um item está documentado quando se encontra um procedimento, um registro, um método, um manual ou outra forma de escrita, que determina como aquele item deve ser realizado, entendido e/ou verificado. A disseminação diz respeito à realização do item pelos funcionários, estagiários e demais envolvidos nas atividades do laboratório por meio de um conhecimento tácito. A disseminação representa ainda a forma como o laboratório conduz as atividades, o que está diretamente relacionada com a cultura da organização. A implementação retrata o cenário mais favorável no qual o item está devidamente documentado e disseminado.
+        </p>
+        <hr>
+
+    </mat-card-content>
+</mat-card>

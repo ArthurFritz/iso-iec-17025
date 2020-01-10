@@ -28,10 +28,15 @@
                         Campo obrigatório
                     </mat-error>
                 </mat-form-field>
-                <br/>
-                <button *ngIf="!registrese" mat-raised-button [disabled]="!form.valid" (click)="realizarLogin()" type="button" color="primary">Login</button><br>
-                <button *ngIf="registrese" mat-raised-button [disabled]="!form.valid" (click)="confirmarRegistro()" type="button" color="primary">Registrar</button><br>
-                <button mat-raised-button (click)="enableRegister()" type="button" color="">
+                <mat-form-field *ngIf="registrese">
+                  <input matInput formControlName="repassword" placeholder="Confirme a senha" value="" type="password">
+                </mat-form-field>
+                <mat-error *ngIf="registrese && form.value.password !== form.value.repassword">
+                  As senhas não são iguais
+                </mat-error>
+                <button *ngIf="!registrese" mat-raised-button [disabled]="!form.valid" (click)="realizarLogin()" type="button" color="primary">Login</button>
+                <button *ngIf="registrese" mat-raised-button [disabled]="!form.valid" (click)="confirmarRegistro()" type="button" color="primary">Registrar</button> <br>
+                <button mat-raised-button (click)="enableRegister()" type="button" color="{{registrese ? 'warn' : ''}}">
                   {{registrese ? 'Cancelar' : 'Registre-se'}}
                 </button>
               </form>

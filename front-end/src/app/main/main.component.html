@@ -1,0 +1,12 @@
+<mat-sidenav-container>
+  <mat-toolbar color="primary">
+    <span fxFlex="100">ISO IEC - 1705</span>
+    <button matTooltip="Sair" mat-icon-button (click)="logout()">
+        <mat-icon>exit_to_app</mat-icon>
+    </button>
+  </mat-toolbar>
+  <mat-progress-bar *ngIf="loading" color="warn" mode="indeterminate"></mat-progress-bar>
+  <mat-card id="content">
+      <router-outlet></router-outlet>
+  </mat-card>
+</mat-sidenav-container>
